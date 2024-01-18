@@ -42,6 +42,52 @@ const francine = createPet ("Francine","turtle");
 
 //console.log(clover, baxter);
 
+//PART 2..
+//update properties and create array of objects
+
+clover.isTired = 8;
+francine.isTired = 9;
+
+const allPets = [
+    sora,
+    clover,
+    baxter,
+    cleo,
+    francine
+];
+
+//console.log(allPets);
+
+//display pets in browser
+const showPets = function (petArray) {
+//empty list
+pets.innerHTML = "";
+
+//for...of loop time
+for (let pet of petArray) {
+    let status = "Ready to play !!";
+    if (pet.isTired >= 7) {
+        status = "Sleeping";
+    }
+//declaring variable li and innerHTML to add pet data
+const li = document.createElement("li");
+li.innerHTML = ` <span class = "pet-name"> ${pet.name} </span> the ${pet.species} is${status}`;
+//append pets with list item
+pets.append (li);    
+}
+};
+
+//add click event to status button
+statusButton.addEventListener (
+    "click",
+    function() {
+        showPets(allPets);
+    }
+);
+
+
+
+
 
 
 
